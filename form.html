@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendataan Biodata Siswa</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #e2e8f0;
+            color: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .border-box {
+            background-color: aliceblue;
+            border-radius: 19px;
+            padding: 35px;
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #0284c7;
+            text-align: left;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .bio-text {
+            color: #64748b;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #1e293b;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #38bdf8;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #1e293b;
+            background-color: #ffffff;
+            outline: none;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .input-field:hover {
+            border-color: #0284c7;
+        }
+
+        .input-field:focus {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+        }
+
+        textarea.input-field {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .radio-option input[type="radio"] {
+            accent-color: #0284c7;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            margin-top: 10px;
+            width: 100%;
+            padding: 12px;
+            background-color: #38bdf8;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-submit:hover {
+            background-color: #0284c7;
+            box-shadow: 0 6px 12px -2px rgba(2, 132, 199, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <form onsubmit="event.preventDefault(); alert('Data berhasil disimpan!');">
+        <div class="border-box">
+            <h2>BIODATA</h2>
+            <p class="bio-text">Formulir biodata siswa SMK Negeri 1 Kepanjen</p>
+
+            <hr>
+
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" class="input-field" placeholder="Masukkan nama lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <textarea id="alamat" class="input-field" placeholder="Masukkan alamat rumah" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="jurusan">Jurusan:</label>
+                <select id="jurusan" class="input-field" required>
+                    <option value="" disabled selected>-- Pilih Jurusan --</option>
+                    <option value="TEI">TEI</option>
+                    <option value="TKR">TKR</option>
+                    <option value="TSM">TSM</option>
+                    <option value="RPL">RPL</option>
+                    <option value="TKJ">TKJ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="gender" value="Laki-laki" required> Laki-laki
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="gender" value="Perempuan"> Perempuan
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="gender" value="Boti"> Boti
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tb">Tinggi Badan (cm):</label>
+                <input type="number" id="tb" class="input-field" placeholder="Contoh: 170" min="50" max="250" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bb">Berat Badan (kg):</label>
+                <input type="number" id="bb" class="input-field" placeholder="Contoh: 60" min="20" max="300" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hobi">Hobi:</label>
+                <input type="text" id="hobi" class="input-field" placeholder="Masukkan hobi Anda" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nohp">No. HP:</label>
+                <input type="tel" id="nohp" class="input-field" placeholder="Contoh: 08123456789" required>
+            </div>
+
+            <!-- Tombol Simpan -->
+            <button type="submit" class="btn-submit">Simpan</button>
+        </div>
+    </form>
+
+</body>
+</html>
